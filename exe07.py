@@ -20,10 +20,10 @@ def main():
             sks = int(input("Input sks Ke-%d dari Nilai %d : " % ((y+1), (x+1))))
             data_sks[x].append(sks)
 
-    for nilai in data_nilai.keys():
-        print 'Mahasiswa Ke-{}, Nilai : {}'.format(nilai+1, data_nilai[nilai])
-    for sks in data_sks.keys():
-        print 'Mahasiswa Ke-{}, SKS Nilai ke-{} : {}'.format(sks+1, sks+1, data_sks[sks])
+    # for nilai in data_nilai.keys():
+    #     print 'Mahasiswa Ke-{}, Nilai : {}'.format(nilai+1, data_nilai[nilai])
+    # for sks in data_sks.keys():
+    #     print 'Mahasiswa Ke-{}, SKS Nilai ke-{} : {}'.format(sks+1, sks+1, data_sks[sks])
 
     for z in range(jml_mhs):
         data_IPK[z] = []
@@ -32,14 +32,14 @@ def main():
         temp_data_ipk = 0
         temp_sum_sks = 0
         for i in range(len(data_nilai[z])):
-            print data_nilai[z][i]
+            #print data_nilai[z][i]
             temp_data_ipk += (data_nilai[z][i] * data_sks[z][i])
             temp_sum_sks += (data_sks[z][i])
         data_IPK[z].append(temp_data_ipk)
         data_SUM_SKS[z].append(temp_sum_sks)
-        IPK_Akhir[z] = (data_IPK[z][0] / data_SUM_SKS[z][0])
-        print data_IPK[z]
-        print data_SUM_SKS[z]
-        print IPK_Akhir[z]
+        IPK_Akhir[z] = (float(data_IPK[z][0]) / float(data_SUM_SKS[z][0]))
+        print "Total Jumlah Nilai : {}".format(data_IPK[z])
+        print "Total Jumlah SKS : {}".format(data_SUM_SKS[z])
+        print "IPK : {} ".format(IPK_Akhir[z])
 
 main()
