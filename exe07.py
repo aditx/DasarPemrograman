@@ -1,4 +1,7 @@
-##Created by : Aditya Putra
+############################################
+#   Created by : Aditya Putra Indrayanto   #
+#   Program untuk menghitung IPK Mahasiswa #
+############################################
 
 jml_mhs = int(input("Input Jumlah Mahasiswa : "))
 jml_nilai = int(input("Input Jumlah nilai tiap Mahasiswa : "))
@@ -20,11 +23,6 @@ def main():
             sks = int(input("Input sks Ke-%d dari Nilai %d : " % ((y+1), (x+1))))
             data_sks[x].append(sks)
 
-    # for nilai in data_nilai.keys():
-    #     print 'Mahasiswa Ke-{}, Nilai : {}'.format(nilai+1, data_nilai[nilai])
-    # for sks in data_sks.keys():
-    #     print 'Mahasiswa Ke-{}, SKS Nilai ke-{} : {}'.format(sks+1, sks+1, data_sks[sks])
-
     for z in range(jml_mhs):
         data_IPK[z] = []
         data_SUM_SKS[z] = []
@@ -32,14 +30,14 @@ def main():
         temp_data_ipk = 0
         temp_sum_sks = 0
         for i in range(len(data_nilai[z])):
-            #print data_nilai[z][i]
             temp_data_ipk += (data_nilai[z][i] * data_sks[z][i])
             temp_sum_sks += (data_sks[z][i])
         data_IPK[z].append(temp_data_ipk)
         data_SUM_SKS[z].append(temp_sum_sks)
         IPK_Akhir[z] = (float(data_IPK[z][0]) / float(data_SUM_SKS[z][0]))
-        print "Total Jumlah Nilai : {}".format(data_IPK[z])
-        print "Total Jumlah SKS : {}".format(data_SUM_SKS[z])
-        print "IPK : {} ".format(IPK_Akhir[z])
+        print "================= Result ================="
+        print "Total Jumlah Nilai Mahasiswa {} : {}".format(z+1, data_IPK[z])
+        print "Total Jumlah SKS yang ditempuh Mahasiswa {} : {}".format(z+1, data_SUM_SKS[z])
+        print "IPK Mahasiswa {} : {} ".format(z+1, IPK_Akhir[z])
 
 main()
