@@ -11,15 +11,24 @@ data_sks = {}
 data_IPK = {}
 data_SUM_SKS = {}
 IPK_Akhir = {}
-sum_sks = {}
 
 def main():
     for x in range(jml_mhs):
         data_nilai[x] = []
         data_sks[x] = []
         for y in range(jml_nilai):
-            nilai = int(input("Input nilai Ke-%d dari Mahasiswa %d : " % ((y+1), (x+1))))
-            data_nilai[x].append(nilai)
+            nilai = raw_input("Input nilai Ke-%d dari Mahasiswa %d : " % ((y+1), (x+1)))
+            if nilai == 'A':
+                bobot = 4
+            elif nilai == 'B':
+                bobot = 3
+            elif nilai == 'C':
+                bobot = 2
+            elif nilai == 'D':
+                bobot = 1
+            else:
+                bobot = 0
+            data_nilai[x].append(bobot)
             sks = int(input("Input sks Ke-%d dari Nilai %d : " % ((y+1), (x+1))))
             data_sks[x].append(sks)
 
@@ -38,6 +47,6 @@ def main():
         print "================= Result ================="
         print "Total Jumlah Nilai Mahasiswa {} : {}".format(z+1, data_IPK[z])
         print "Total Jumlah SKS yang ditempuh Mahasiswa {} : {}".format(z+1, data_SUM_SKS[z])
-        print "IPK Mahasiswa {} : {} ".format(z+1, IPK_Akhir[z])
+        print "IPK Mahasiswa {} : {} ".format(z+1, round(IPK_Akhir[z], 2))
 
 main()
