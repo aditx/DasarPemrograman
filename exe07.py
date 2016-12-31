@@ -21,6 +21,7 @@ def main():
     hitung_ipk(jml_mhs, jml_nilai)
 
 def hitung_ipk(jml_mhs, jml_nilai):
+    data_rata_ipk = 0
     for x in range(jml_mhs):
         data_nilai[x] = []
         data_sks[x] = []
@@ -55,9 +56,16 @@ def hitung_ipk(jml_mhs, jml_nilai):
         data_IPK[z].append(temp_data_ipk)
         data_SUM_SKS[z].append(temp_sum_sks)
         IPK_Akhir[z] = (float(data_IPK[z][0]) / float(data_SUM_SKS[z][0]))
-        print "================= Result ================="
-        print "Total Jumlah Nilai Mahasiswa {} : {}".format(z+1, data_IPK[z])
+        data_rata_ipk += IPK_Akhir[z]
+        print "================= Result IPK Mahasiswa {} =================".format(z+1)
+        print "Total Jumlah Nilai yang didapat Mahasiswa {} : {}".format(z+1, data_IPK[z])
         print "Total Jumlah SKS yang ditempuh Mahasiswa {} : {}".format(z+1, data_SUM_SKS[z])
         print "IPK Mahasiswa {} : {} ".format(z+1, round(IPK_Akhir[z], 2))
+
+    total_rata_ipk = data_rata_ipk/jml_mhs
+    print "\n"
+    print "================= SUMMARY ================="
+    print "Jumlah Total Mahasiswa adalah : {}".format(jml_mhs)
+    print "Rata-rata IPK semua Mahasiswa adalah : {}".format(round(total_rata_ipk, 2))
 
 main()
