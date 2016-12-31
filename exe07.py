@@ -3,9 +3,6 @@
 #   Program untuk menghitung IPK Mahasiswa #
 ############################################
 
-jml_mhs = int(input("Input Jumlah Mahasiswa : "))
-jml_nilai = int(input("Input Jumlah nilai tiap Mahasiswa : "))
-
 data_nilai = {}
 data_sks = {}
 data_IPK = {}
@@ -13,21 +10,35 @@ data_SUM_SKS = {}
 IPK_Akhir = {}
 
 def main():
+    print "========================================="
+    print "====     Masukkan nilai mahasiswa    ===="
+    print "====   Berupa huruf (A,B,C,D atau E) ===="
+    print "====  Dan jumlah SKS dari tiap matkul ==="
+    print "========================================="
+    print "\n"
+    jml_mhs = int(input("Input Jumlah Mahasiswa : "))
+    jml_nilai = int(input("Input Jumlah nilai tiap Mahasiswa : "))
+    hitung_ipk(jml_mhs, jml_nilai)
+
+def hitung_ipk(jml_mhs, jml_nilai):
     for x in range(jml_mhs):
         data_nilai[x] = []
         data_sks[x] = []
         for y in range(jml_nilai):
             nilai = raw_input("Input nilai Ke-%d dari Mahasiswa %d : " % ((y+1), (x+1)))
-            if nilai == 'A':
+            if nilai == 'A' or nilai == 'a':
                 bobot = 4
-            elif nilai == 'B':
+            elif nilai == 'B' or nilai == 'b':
                 bobot = 3
-            elif nilai == 'C':
+            elif nilai == 'C' or nilai == 'c':
                 bobot = 2
-            elif nilai == 'D':
+            elif nilai == 'D' or nilai == 'd':
                 bobot = 1
-            else:
+            elif nilai == 'E' or nilai == 'e':
                 bobot = 0
+            else:
+                print "Maaf inputan nilai anda salah !! Mohon ulangi lagi"
+                exit()
             data_nilai[x].append(bobot)
             sks = int(input("Input sks Ke-%d dari Nilai %d : " % ((y+1), (x+1))))
             data_sks[x].append(sks)
